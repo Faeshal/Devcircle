@@ -16,6 +16,9 @@ if (process.env.NODE_ENV === "development") {
 // SECTION : Database Connection
 connectDB();
 
+// SECTION : Body Parser
+app.use(express.json());
+
 // SECTION : Routing
 app.use("/api/v1/bootcamps", bootcamps);
 
