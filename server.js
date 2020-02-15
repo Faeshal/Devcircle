@@ -4,10 +4,10 @@ const dotenv = require("dotenv");
 const morgan = require("morgan");
 const colors = require("colors");
 const cors = require("cors");
-
 const PORT = process.env.PORT || 5000;
 const bootcamps = require("./routes/bootcamps");
 const connectDB = require("./config/db");
+const errorHandler = require("./middleware/error");
 
 dotenv.config({ path: "./config/config.env" });
 
@@ -25,6 +25,9 @@ app.use(express.json());
 
 // SECTION : Routing
 app.use("/api/v1/bootcamps", bootcamps);
+
+// SECTION : Error Handler
+app.use(errorHandler);
 
 // SECTION : SERVER LISTEN
 const server = app.listen(PORT, () => {
