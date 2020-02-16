@@ -1,15 +1,14 @@
 const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
+dotenv.config({ path: "./config/config.env" });
+const PORT = process.env.PORT || 5000;
 const morgan = require("morgan");
 const colors = require("colors");
 const cors = require("cors");
-const PORT = process.env.PORT || 5000;
 const bootcamps = require("./routes/bootcamps");
 const connectDB = require("./config/db");
 const errorHandler = require("./middleware/error");
-
-dotenv.config({ path: "./config/config.env" });
 
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
