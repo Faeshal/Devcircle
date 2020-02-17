@@ -7,6 +7,7 @@ const morgan = require("morgan");
 const colors = require("colors");
 const cors = require("cors");
 const bootcamps = require("./routes/bootcamps");
+const courses = require("./routes/courses");
 const connectDB = require("./config/db");
 const errorHandler = require("./middleware/error");
 
@@ -24,6 +25,7 @@ app.use(express.json());
 
 // SECTION : Routing
 app.use("/api/v1/bootcamps", bootcamps);
+app.use("/api/v1/courses", courses);
 
 // SECTION : Error Handler
 app.use(errorHandler);
