@@ -1,5 +1,10 @@
 const express = require("express");
 const router = express.Router();
+const Bootcamp = require("../models/Bootcamp");
+const advancedResults = require("../middleware/advancedResults");
+// include course router
+const courseRouter = require("./courses");
+
 const {
   getBootcamps,
   getBootcamp,
@@ -10,15 +15,12 @@ const {
   bootcampPhotoUpload
 } = require("../controllers/bootcamps");
 
-// include course router
-const courseRouter = require("./courses");
-
 //mounting router
 router.use("/:bootcampId/courses", courseRouter);
 
 router
   .route("/")
-  .get(getBootcamps)
+  .get(advancedResults(Bootcamp, "courses"), getBootcamps)
   .post(createBootcamp);
 
 router

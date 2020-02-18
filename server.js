@@ -11,8 +11,8 @@ const fileupload = require("express-fileupload");
 const cors = require("cors");
 const bootcamps = require("./routes/bootcamps");
 const courses = require("./routes/courses");
-const connectDB = require("./config/db");
 const errorHandler = require("./middleware/error");
+const connectDB = require("./config/db");
 
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
