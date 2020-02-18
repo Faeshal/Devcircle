@@ -8,7 +8,7 @@ const asyncHandler = require("../middleware/async.js");
 // @desc    Get Courses
 // @access  Public
 
-exports.getCourses = asyncHandler(async (req, res, next) => {
+exports.getCourses = asyncHandler(async (req, res) => {
   let query;
 
   if (req.params.bootcampId) {

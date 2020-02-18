@@ -3,9 +3,9 @@ const app = express();
 const dotenv = require("dotenv");
 const path = require("path");
 dotenv.config({ path: "./config/config.env" });
+require("colors");
 const PORT = process.env.PORT || 5000;
 const morgan = require("morgan");
-const colors = require("colors");
 const helmet = require("helmet");
 const fileupload = require("express-fileupload");
 const cors = require("cors");
@@ -52,8 +52,10 @@ const server = app.listen(PORT, () => {
 });
 
 // Handle unhandled promise rejections
-process.on("unhandledRejection", (err, promise) => {
+process.on("unhandledRejection", err => {
   console.log("Error:" + err.message);
   // Close server & exit process
   server.close(() => process.exit(1));
 });
+
+// "lint": "eslint ./ --fix",
