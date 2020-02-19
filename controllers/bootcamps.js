@@ -28,6 +28,8 @@ exports.getBootcamp = asyncHandler(async (req, res, next) => {
 // @desc    Create bootcamp
 // @access  Private
 exports.createBootcamp = asyncHandler(async (req, res, next) => {
+  req.body.user = req.user.id;
+
   const bootcamp = await Bootcamp.create(req.body);
   res.status(201).json({
     success: true,
