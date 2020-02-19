@@ -7,10 +7,12 @@ require("colors");
 const PORT = process.env.PORT || 5000;
 const morgan = require("morgan");
 const helmet = require("helmet");
+const cookieParser = require("cookie-parser");
 const fileupload = require("express-fileupload");
 const cors = require("cors");
 const bootcamps = require("./routes/bootcamps");
 const courses = require("./routes/courses");
+const auth = require("./routes/auth");
 const errorHandler = require("./middleware/error");
 const connectDB = require("./config/db");
 
@@ -18,32 +20,36 @@ if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 
-// SECTION :Security
+// Security
 app.use(helmet());
 
-// SECTION CORS
+//  CORS
 app.use(cors());
 
-// SECTION : File Upload
+// File Upload
 app.use(fileupload());
 
-// SECTION : Database Connection
+// Database Connection
 connectDB();
 
-// SECTION : Body Parser
+// Body Parser
 app.use(express.json());
+
+// Cookie Parser
+app.use(cookieParser());
 
 // Set Static Folder
 app.use(express.static(path.join(__dirname, "public")));
 
-// SECTION : Routing
+//  : Routing
 app.use("/api/v1/bootcamps", bootcamps);
 app.use("/api/v1/courses", courses);
+app.use("/api/v1/auth", auth);
 
-// SECTION : Error Handler
+//  : Error Handler
 app.use(errorHandler);
 
-// SECTION : SERVER LISTEN
+//  : SERVER LISTEN
 const server = app.listen(PORT, () => {
   console.log(
     `Server is running in ${process.env.NODE_ENV} mode on port ${PORT}`.green
@@ -57,5 +63,3 @@ process.on("unhandledRejection", err => {
   // Close server & exit process
   server.close(() => process.exit(1));
 });
-
-// "lint": "eslint ./ --fix",
