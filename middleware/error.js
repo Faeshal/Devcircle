@@ -1,5 +1,5 @@
 const ErrorResponse = require("../utils/errorResponse");
-const errorHandler = (err, req, res) => {
+const errorHandler = (err, req, res, next) => {
   let error = { ...err };
   console.log(`Error: ${err.stack} `.bold.red);
   error.message = err.message;
