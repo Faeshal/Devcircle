@@ -55,15 +55,28 @@ exports.createBootcamp = asyncHandler(async (req, res, next) => {
 // @desc    Edit bootcamp
 // @access  Private
 exports.updateBootcamp = asyncHandler(async (req, res, next) => {
-  const bootcamp = await Bootcamp.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-    runValidators: true
-  });
+  let bootcamp = await Bootcamp.findById(req.params.id);
   if (!bootcamp) {
     return next(
       new ErrorResponse(`Bootcamp no found with id ${req.params.id}`, 404)
     );
   }
+
+  // check user is bootcamp owner
+  if (bootcamp.user.toString() !== req.user.id && req.user.role !== "admin") {
+    return next(
+      new ErrorResponse(
+        `user with id ${req.params.id} is not authorized to update this bootcamp`,
+        401
+      )
+    );
+  }
+
+  Bootcamp = await Bootcamp.findOneAndUpdate(req.params.id, req.body, {
+    new: true,
+    runValidators: true
+  });
+
   res.status(200).json({ success: true, data: bootcamp });
 });
 
@@ -77,6 +90,17 @@ exports.deleteBootcamp = asyncHandler(async (req, res, next) => {
       new ErrorResponse(`Bootcamp no found with id ${req.params.id}`, 404)
     );
   }
+
+  // check user is bootcamp owner
+  if (bootcamp.user.toString() !== req.user.id && req.user.role !== "admin") {
+    return next(
+      new ErrorResponse(
+        `user with id ${req.params.id} is not authorized to update this bootcamp`,
+        401
+      )
+    );
+  }
+
   bootcamp.remove();
   res.status(200).json({ success: true, data: {} });
 });
