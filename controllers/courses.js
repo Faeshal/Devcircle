@@ -1,6 +1,6 @@
 const Course = require("../models/Course");
 const Bootcamp = require("../models/Bootcamp");
-const errorResponse = require("../utils/errorResponse");
+const ErrorResponse = require("../utils/errorResponse");
 const asyncHandler = require("../middleware/async.js");
 
 // * @route   GET /api/v1/courses
@@ -48,6 +48,7 @@ exports.getCourse = asyncHandler(async (req, res, next) => {
 
 exports.addCourse = asyncHandler(async (req, res, next) => {
   req.body.bootcamp = req.params.bootcampId;
+  req.body.user = req.user.id;
   const bootcamp = await Bootcamp.findById(req.params.bootcampId);
 
   if (!bootcamp) {
@@ -56,6 +57,16 @@ exports.addCourse = asyncHandler(async (req, res, next) => {
         `No Bootcamp with the id of : ${req.params.bootcampId}`
       ),
       404
+    );
+  }
+
+  // check user is bootcamp owner
+  if (bootcamp.user.toString() !== req.user.id && req.user.role !== "admin") {
+    return next(
+      new ErrorResponse(
+        `user with id ${req.user.id} is not authorized to add a course to bootcamp ${bootcamp._id}`,
+        401
+      )
     );
   }
 
@@ -77,6 +88,16 @@ exports.updateCourse = asyncHandler(async (req, res, next) => {
     );
   }
 
+  // check user is course owner
+  if (course.user.toString() !== req.user.id && req.user.role !== "admin") {
+    return next(
+      new ErrorResponse(
+        `user with id ${req.user.id} is not authorized to update this course ${course._id}`,
+        401
+      )
+    );
+  }
+
   course = await Course.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
     runValidators: true
@@ -94,7 +115,17 @@ exports.deleteCourse = asyncHandler(async (req, res, next) => {
 
   if (!course) {
     return next(
-      new errorResponse(`No Course with the id of : ${req.params.id}`)
+      new ErrorResponse(`No Course with the id of : ${req.params.id}`)
+    );
+  }
+
+  // check user is course owner
+  if (course.user.toString() !== req.user.id && req.user.role !== "admin") {
+    return next(
+      new ErrorResponse(
+        `user with id ${req.user.id} is not authorized to Delete this course ${course._id}`,
+        401
+      )
     );
   }
 
