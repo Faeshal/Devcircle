@@ -5,7 +5,7 @@ const asyncHandler = require("../middleware/async.js");
 
 // * @route   GET /api/v1/courses
 // * @route   GET /api/v1/bootcamps/:bootcampId/courses
-// @desc    Get Courses
+// @desc    Get
 // @access  Public
 
 exports.getCourses = asyncHandler(async (req, res) => {
