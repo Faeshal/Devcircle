@@ -4,6 +4,7 @@ const Bootcamp = require("../models/Bootcamp");
 const advancedResults = require("../middleware/advancedResults");
 // include course router
 const courseRouter = require("./courses");
+const reviewRouter = require("./reviews");
 const {
   getBootcamps,
   getBootcamp,
@@ -19,6 +20,7 @@ const { protect, Authorize } = require("../middleware/auth");
 
 //mounting router
 router.use("/:bootcampId/courses", courseRouter);
+router.use("/:bootcampId/reviews", reviewRouter);
 
 // * Bootcamp Route
 router
