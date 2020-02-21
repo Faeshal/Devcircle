@@ -108,16 +108,12 @@ exports.forgotPassword = asyncHandler(async (req, res, next) => {
 
   // get reset token
   const resetToken = user.getResetPasswordToken();
-
   await user.save({ validateBeforeSave: false });
-
   //create reset url
   const resetUrl = `${req.protocol}://${req.get(
     "host"
   )}/api/v1/auth/resetpassword/${resetToken}`;
-
   const message = `You are receiving this email because you request to Reset your password . please go to this link to reset password : ${resetUrl}`;
-
   try {
     await sendEmail({
       email: user.email,
