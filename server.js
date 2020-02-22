@@ -7,6 +7,7 @@ require("colors");
 const PORT = process.env.PORT || 5000;
 const morgan = require("morgan");
 const helmet = require("helmet");
+const mongoSanitize = require("express-mongo-sanitize");
 const cookieParser = require("cookie-parser");
 const fileupload = require("express-fileupload");
 const cors = require("cors");
@@ -24,6 +25,7 @@ if (process.env.NODE_ENV === "development") {
 
 // Security
 app.use(helmet());
+app.use(mongoSanitize());
 
 //  CORS
 app.use(cors());
