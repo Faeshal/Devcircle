@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 5000;
 const morgan = require("morgan");
 const helmet = require("helmet");
 const mongoSanitize = require("express-mongo-sanitize");
+const xss = require("xss-clean");
 const cookieParser = require("cookie-parser");
 const fileupload = require("express-fileupload");
 const cors = require("cors");
@@ -23,8 +24,9 @@ if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 
-// Security
+// ! Security
 app.use(helmet());
+app.use(xss());
 app.use(mongoSanitize());
 
 //  CORS
