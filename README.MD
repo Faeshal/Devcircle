@@ -1,11 +1,14 @@
 # Devcircle API
-> **Backend API for Devcircle App, which is a Bootcamp directory website**
+> **Backend API for Devcircle Bootcamp directory website**
 
 ![node](https://img.shields.io/badge/NodeJS-12.15-brightgreen) ![express](https://img.shields.io/badge/Express-4.17.1-lightgrey) ![db](https://img.shields.io/badge/MongoDB-4.2.0-yellowgreen) ![docker](https://img.shields.io/badge/Docker%20-19.03.05-blue) ![heroku](https://img.shields.io/badge/Deploy-Heroku-orange)
 
 ![devcircle](https://i.postimg.cc/x8SPTXnR/devcircle.jpg)
 
-**Build using NodeJS & Express with MongoDB ATLAS as a Cloud Database**
+**Build using NodeJS , Express & MongoDB ATLAS as a Cloud Database**
+
+******Documentation :** 
+* https://documenter.getpostman.com/view/9427336/SzKWtwpm?version=latest
 
 ### **Step Instalation** 
 Rename "config/config.env.env" to "config/config.env" and update the values/settings to your own
