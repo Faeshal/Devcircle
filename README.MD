@@ -1,10 +1,53 @@
 # Devcircle API
-### **Backend API for a Bootcamp directory website******
+> **Backend API for Devcircle App, which is a Bootcamp directory website**
+
 ![node](https://img.shields.io/badge/NodeJS-12.15-brightgreen) ![express](https://img.shields.io/badge/Express-4.17.1-lightgrey) ![db](https://img.shields.io/badge/MongoDB-4.2.0-yellowgreen) ![docker](https://img.shields.io/badge/Docker%20-19.03.05-blue) ![heroku](https://img.shields.io/badge/Deploy-Heroku-orange)
 
 ![devcircle](https://i.postimg.cc/x8SPTXnR/devcircle.jpg)
 
 **Build using NodeJS & Express with MongoDB ATLAS as a Cloud Database**
+
+### **Step Instalation** 
+Rename "config/config.env.env" to "config/config.env" and update the values/settings to your own
+
+### Install Dependencies
+
+```
+npm install
+```
+
+### Run App
+
+```
+# Run in dev mode
+npm run dev
+
+# Run in prod mode
+npm start
+```
+
+### Database Seeder
+
+To seed the database with users, bootcamps, courses and reviews with data from the "\_data" folder, run
+
+```
+# Destroy all data
+node seeder -d
+
+# Import all data
+node seeder -i
+```
+
+### Demo
+
+The API is live at [devcircle](https://devcircle.heroku.com)
+
+Extensive documentation with examples [here](https://documenter.getpostman.com/view/8923145/SVtVVTzd?version=latest)
+
+- Version: 1.0
+- License: MIT
+- Author: Faeshal
+
 
 ### **API DETAILS & SPECIFICATION**
 ### Bootcamps
