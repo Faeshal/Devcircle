@@ -1,16 +1,20 @@
 # Devcircle API
-> **Backend API for Devcircle Bootcamp directory website**
+> **Backend API for Devcircle Bootcamp App**
 
 ![node](https://img.shields.io/badge/NodeJS-12.15-brightgreen) ![express](https://img.shields.io/badge/Express-4.17.1-lightgrey) ![db](https://img.shields.io/badge/MongoDB-4.2.0-yellowgreen) ![docker](https://img.shields.io/badge/Docker%20-19.03.05-blue) ![heroku](https://img.shields.io/badge/Deploy-Heroku-orange)
 
 ![devcircle](https://i.postimg.cc/x8SPTXnR/devcircle.jpg)
 
-**Build using NodeJS , Express & MongoDB ATLAS as a Cloud Database**
+**Build using NodeJS, Express & MongoDB Atlas. Implementing JSON Web Token, Password Encryption, Handle CORS, Prevent Cross Site Scripting Attack and much more. Deploy on Heroku inside a Docker Container.**
+- Version: 1.0
+- License: MIT
+- Author: [Faeshal](https://faeshal.com)
 
-******Documentation :** 
-* https://documenter.getpostman.com/view/9427336/SzKWtwpm?version=latest
+**Detail Usage :** 
+* **[Live API - Docs](https://devcircle25.herokuapp.com/)**
+* **[Postman - Docs](https://documenter.getpostman.com/view/9427336/SzKWtwpm?version=latest)**
 
-### **Step Instalation** 
+### **Step Local Instalation** 
 Rename "config/config.env.env" to "config/config.env" and update the values/settings to your own
 
 ### Install Dependencies
@@ -41,18 +45,7 @@ node seeder -d
 node seeder -i
 ```
 
-### Demo
-
-The API is live at [devcircle](https://devcircle.heroku.com)
-
-Extensive documentation with examples [here](https://documenter.getpostman.com/view/8923145/SVtVVTzd?version=latest)
-
-- Version: 1.0
-- License: MIT
-- Author: Faeshal
-
-
-### **API DETAILS & SPECIFICATION**
+### **API Details & Specification**
 ### Bootcamps
 - List all bootcamps in the database**
    * Pagination
@@ -133,7 +126,7 @@ Extensive documentation with examples [here](https://documenter.getpostman.com/v
   * Admin only
 - Users can only be made admin by updating the database field manually
 
-## Security
+### **Security**
 - Encrypt passwords and reset tokens
 - Prevent cross site scripting - XSS
 - Prevent NoSQL injections
@@ -142,10 +135,14 @@ Extensive documentation with examples [here](https://documenter.getpostman.com/v
 - Add headers for security (helmet)
 - Use cors to make API public (for now)
 
-## Documentation
+### **Documentation**
 - Use Postman to create documentation
 - Use docgen to create HTML files from Postman
 - Add html files as the / route for the api
+
+
+🗡 **February 2020 - [faeshal.com](https://faeshal.com)**
+
 
 
 
