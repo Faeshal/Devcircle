@@ -58,13 +58,6 @@ app.use(cookieParser());
 // Set Static Folder
 app.use(express.static(path.join(__dirname, "public")));
 
-// Optional - Just for render API Documentation
-app.set("view engine", "ejs");
-app.set("views", "./public");
-app.get("/", (req, res, next) => {
-  res.render("index");
-});
-
 //  : Routing
 app.use("/api/v1/bootcamps", bootcamps);
 app.use("/api/v1/courses", courses);

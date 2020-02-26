@@ -10,4 +10,4 @@ RUN npm install && npm cache clean --force
 
 COPY . .
 
-CMD ["node","app.js"]
+CMD ["node","server.js"]
