@@ -1,9 +1,11 @@
 # Devcircle API
 > **Backend API for Devcircle Bootcamp App**
 
-![node](https://img.shields.io/badge/NodeJS-12.15-brightgreen) ![express](https://img.shields.io/badge/Express-4.17.1-lightgrey) ![db](https://img.shields.io/badge/MongoDB-4.2.0-yellowgreen) ![docker](https://img.shields.io/badge/Docker%20-19.03.05-blue) ![heroku](https://img.shields.io/badge/Deploy-Heroku-orange)
+![node](https://img.shields.io/badge/NodeJS-12.15-brightgreen) ![express](https://img.shields.io/badge/Express-4.17.1-lightgrey) ![db](https://img.shields.io/badge/MongoDB-4.2.0-yellowgreen) ![docker](https://img.shields.io/badge/Docker%20-19.03.05-blue) ![heroku](https://img.shields.io/badge/Deploy-Heroku-orange) [![HitCount](http://hits.dwyl.com/faeshal/https://githubcom/Faeshal/Devcircle.svg)](http://hits.dwyl.com/faeshal/https://githubcom/Faeshal/Devcircle)
 
 ![devcircle](https://i.postimg.cc/x8SPTXnR/devcircle.jpg)
+
+
 
 **Build using NodeJS, Express & MongoDB Atlas. Implementing JSON Web Token, Password Encryption, Handle CORS, Prevent Cross Site Scripting Attack and much more. Deploy on Heroku inside a Docker Container.**
 - Version: 1.0
