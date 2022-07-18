@@ -1,7 +1,7 @@
 # Devcircle API
 > **Backend API for Devcircle Bootcamp App**
 
-![node](https://img.shields.io/badge/NodeJS-12.15-brightgreen) ![express](https://img.shields.io/badge/Express-4.17.1-lightgrey) ![db](https://img.shields.io/badge/MongoDB-4.2.0-yellowgreen) ![docker](https://img.shields.io/badge/Docker%20-19.03.05-blue) ![heroku](https://img.shields.io/badge/Deploy-Heroku-orange) [![HitCount](http://hits.dwyl.com/faeshal/https://githubcom/Faeshal/Devcircle.svg)](http://hits.dwyl.com/faeshal/https://githubcom/Faeshal/Devcircle)
+![node](https://img.shields.io/badge/NodeJS-12.15-brightgreen) ![express](https://img.shields.io/badge/Express-4.17.1-lightgrey) ![db](https://img.shields.io/badge/MongoDB-4.2.0-yellowgreen) ![docker](https://img.shields.io/badge/Docker%20-19.03.05-blue) ![heroku](https://img.shields.io/badge/Deploy-Heroku-orange) (http://hits.dwyl.com/faeshal/https://githubcom/Faeshal/Devcircle)
 
 ![devcircle](https://i.postimg.cc/x8SPTXnR/devcircle.jpg)
 
@@ -13,8 +13,7 @@
 - Author: [Faeshal](https://faeshal.com)
 
 **Detail Usage :** 
-* **[Live API - Docs](https://devcircle25.herokuapp.com/)**
-* **[Postman - Docs](https://documenter.getpostman.com/view/9427336/SzKWtwpm?version=latest)**
+* **[Postman - Docs](https://www.getpostman.com/collections/b06797f227fb8ec694f4)**
 
 ### **Step Local Instalation** 
 Rename "config/config.env.env" to "config/config.env" and update the values/settings to your own
